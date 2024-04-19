@@ -277,6 +277,8 @@ async function iconTracker(request: Request, env: Env): Promise<Response> {
   const key = ip;
   let value = await env.tracker.get<PersonInfo>(key, 'json');
   if (value) {
+    // update stuff
+    value.info = info;
     value.count++;
   } else {
     value = {
