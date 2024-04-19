@@ -54,7 +54,7 @@ const map = (trash: geoJson) => {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>6mp page tracker/title>
+    <title>6mp page tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.js"></script>
     <link
