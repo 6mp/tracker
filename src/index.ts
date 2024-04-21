@@ -36,6 +36,7 @@ type personMapInfo = {
     ip: string;
     user_agent: string;
     visit_count: number;
+    orginization: string;
   };
   geometry: {
     type: 'Point';
@@ -205,7 +206,7 @@ const map = (trash: geoJson) => {
       map.on('click', 'trees-point', (event) => {
         new mapboxgl.Popup()
           .setLngLat(event.features[0].geometry.coordinates)
-          .setHTML("<strong>IP:</strong> " + event.features[0].properties.ip + "<br><strong>Visit Count:</strong> " + event.features[0].properties.visit_count + "<br><strong>User Agent:</strong> " + event.features[0].properties.user_agent)
+          .setHTML("<strong>IP:</strong> " + event.features[0].properties.ip + "<br><strong>Visit Count:</strong> " + event.features[0].properties.visit_count + "<br><strong>Last User Agent:</strong> " + event.features[0].properties.user_agent + "<br><strong>Orginization:</strong> " + event.features[0].properties.orginization)
           .addTo(map);
       });
     </script>
@@ -237,6 +238,7 @@ async function getStuff(env: Env) {
           ip: key.name,
           user_agent: value.info.userAgent,
           visit_count: value.count,
+          orginization: value.info.asOrganization as string,
         },
         geometry: {
           type: 'Point',
